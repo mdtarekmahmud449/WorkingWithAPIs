@@ -19,7 +19,7 @@ class ProductsRecyclerFragment (): BaseFragment<FragmentProductsRecyclerBinding>
 
     private fun setAdapter(){
         binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-        productAdapter = ProductAdapter(this)
+        productAdapter = ProductAdapter(requireContext(),this)
         binding.recyclerView.adapter = productAdapter
     }
 
