@@ -6,12 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import com.example.apis.data.remote.Product
+import com.example.apis.data.remote.ProductResponse
 import com.example.apis.databinding.ProductSampleBinding
 
-class ProductAdapter(val context: Context, val listener: Listener) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+class ProductAdapter(private val context: Context, private val listener: Listener, private val productLists: List<Product>) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
     private var lastPosition = -1
     interface Listener{
-        fun onclick()
+        fun onclick(product: Product)
     }
     class ProductViewHolder(val binding: ProductSampleBinding): RecyclerView.ViewHolder(binding.root)
 
@@ -21,12 +24,21 @@ class ProductAdapter(val context: Context, val listener: Listener) : RecyclerVie
     }
 
     override fun getItemCount(): Int {
-        return 40
+        return productLists.size
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
+        val product = productLists[position]
+        holder.binding.apply {
+            productImage.load(product.thumbnail)
+            productBrand.text = product.brand
+            productTitle.text = product.title
+            productPrice.text = product.price.toString()
+            productDiscount.text = product.discountPercentage.toString()
+            productStock.text = product.stock.toString()
+        }
         holder.binding.root.setOnClickListener{
-            listener.onclick()
+            listener.onclick(product)
         }
         setAnimation(context, holder.itemView, position)
     }

@@ -16,8 +16,5 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         viewModel.getAllProductFromResponse()
-        viewModel.allProductResponse.observe(this){
-            Log.d("TAG", "onCreate: ${it.products}")
-        }
     }
 }

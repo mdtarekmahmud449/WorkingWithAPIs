@@ -10,5 +10,5 @@ object RetrofitServerClient {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    fun getProductApi() = getInstance().create(APIsServices::class.java)
+    fun getProductApi(): APIsServices = getInstance().create(APIsServices::class.java)
 }

@@ -14,7 +14,7 @@ class MainViewModel : ViewModel() {
     fun getAllProductFromResponse(){
         viewModelScope.launch {
             val dataFromResponse = RetrofitServerClient.getProductApi().getAllProducts().body()
-            _allProductResponse.postValue(dataFromResponse)
+            _allProductResponse.postValue(dataFromResponse!!)
         }
     }
 }

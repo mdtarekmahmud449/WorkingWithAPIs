@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -52,4 +53,5 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")//retrofit
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")//retrofit gson
     implementation("androidx.activity:activity-ktx:1.8.1")//view_models
+    implementation("io.coil-kt:coil:2.5.0")//image_loader
 }

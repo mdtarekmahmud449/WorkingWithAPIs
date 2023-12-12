@@ -8,4 +8,5 @@
     <string name="brand">Apple</string>
     <string name="discount">OFF: 14%</string>
     <string name="tech_shop">Tech Shop</string>
+    <string name="rating">rating</string>
 </resources>
